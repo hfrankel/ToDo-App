@@ -7,7 +7,7 @@ import { uuid } from 'uuidv4';
 
 export default function App() {
   const [items, setItems] = useState([
-    { id: uuid(), text: 'To do #1', complete: false }
+    { id: uuid(), text: 'Add tasks', complete: false }
   ]);
 
   const addItem = text => {
