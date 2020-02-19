@@ -3,13 +3,13 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import DoneButton from './DoneButton';
 import DeleteButton from './DeleteButton';
 
-const ListItem = ({ item }) => {
+const ListItem = ({ item, deleteItem }) => {
   return (
     <TouchableOpacity style={styles.listItem}>
       <View style={styles.listItemView}>
-        <Text style={styles.listItemText}>{item.title}</Text>
+        <Text style={styles.listItemText}>{item.text}</Text>
         <DoneButton />
-        <DeleteButton />
+        <DeleteButton item={item} deleteItem={deleteItem} />
       </View>
     </TouchableOpacity>
   );
