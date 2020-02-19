@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 const DoneButton = () => {
   return (
-    <TouchableOpacity style={{ marginRight: 10 }}>
+    <TouchableOpacity style={{ marginRight: 15 }}>
       <FontAwesome
         onPress={() => alert('Completed')}
         name="check"
