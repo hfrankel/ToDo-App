@@ -1,34 +1,29 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
+import ListItem from './ListItem';
 
 const ListScreen = () => {
   const items = [
-    { item: 'To do item #1' },
-    { item: 'To do item #2' },
-    { item: 'To do item #3' },
-    { item: 'To do item #4' },
-    { item: 'To do item #5' },
-    { item: 'To do item #6' },
-    { item: 'To do item #7' },
-    { item: 'To do item #8' },
-    { item: 'To do item #9' }
+    { title: 'To do item #1' },
+    { title: 'To do item #2' },
+    { title: 'To do item #3' },
+    { title: 'To do item #4' },
+    { title: 'To do item #5' },
+    { title: 'To do item #6' },
+    { title: 'To do item #7' },
+    { title: 'To do item #8' },
+    { title: 'To do item #9' }
   ];
 
   return (
     <FlatList
-      keyExtractor={item => item.item}
+      keyExtractor={item => item.title}
       data={items}
       renderItem={({ item }) => {
-        return <Text style={styles.textStyle}>{item.item}</Text>;
+        return <ListItem item={item} />;
       }}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  textStyle: {
-    marginVertical: 30
-  }
-});
 
 export default ListScreen;

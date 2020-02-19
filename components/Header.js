@@ -11,8 +11,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   header: {
-    height: 60,
-    padding: 15,
+    height: 75,
+    padding: 25,
     backgroundColor: 'darkslateblue'
   },
   text: {
