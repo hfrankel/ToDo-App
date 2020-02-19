@@ -1,12 +1,25 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-const DoneButton = () => {
+const DoneButton = ({ item, completeItem, untickItem }) => {
+  if (item.complete === true) {
+    return (
+      <TouchableOpacity style={{ marginRight: 15 }}>
+        <FontAwesome
+          onPress={() => untickItem(item.id)}
+          name="check"
+          size={25}
+          color="green"
+        ></FontAwesome>
+      </TouchableOpacity>
+    );
+  }
+
   return (
     <TouchableOpacity style={{ marginRight: 15 }}>
       <FontAwesome
-        onPress={() => alert('Completed')}
+        onPress={() => completeItem(item.id)}
         name="check"
         size={25}
         color="green"

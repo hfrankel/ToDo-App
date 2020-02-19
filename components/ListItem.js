@@ -3,12 +3,28 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import DoneButton from './DoneButton';
 import DeleteButton from './DeleteButton';
 
-const ListItem = ({ item, deleteItem }) => {
+const ListItem = ({ item, deleteItem, completeItem, untickItem }) => {
+  if (item.complete === true) {
+    return (
+      <TouchableOpacity style={styles.listItem}>
+        <View style={styles.listItemView}>
+          <Text style={styles.listItemComplete}>{item.text}</Text>
+          <DoneButton
+            item={item}
+            completeItem={completeItem}
+            untickItem={untickItem}
+          />
+          <DeleteButton item={item} deleteItem={deleteItem} />
+        </View>
+      </TouchableOpacity>
+    );
+  }
+
   return (
     <TouchableOpacity style={styles.listItem}>
       <View style={styles.listItemView}>
         <Text style={styles.listItemText}>{item.text}</Text>
-        <DoneButton />
+        <DoneButton item={item} completeItem={completeItem} />
         <DeleteButton item={item} deleteItem={deleteItem} />
       </View>
     </TouchableOpacity>
@@ -21,6 +37,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
     borderBottomWidth: 1,
     borderColor: '#eeeeee'
+  },
+  listItemComplete: {
+    textDecorationLine: 'line-through',
+    color: '#a6a6a6',
+    fontSize: 18,
+    flexGrow: 2
   },
   listItemView: {
     flexDirection: 'row',
