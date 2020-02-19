@@ -1,23 +1,18 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-const DeleteButton = () => {
+const DeleteButton = ({ item, deleteItem }) => {
   return (
-    <FontAwesome.Button
-      onPress={() => alert('Deleted')}
-      name="close"
-      size={20}
-      color="firebrick"
-      style={styles.deleteButton}
-    ></FontAwesome.Button>
+    <TouchableOpacity>
+      <FontAwesome
+        onPress={() => deleteItem(item.id)}
+        name="close"
+        size={25}
+        color="firebrick"
+      ></FontAwesome>
+    </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  deleteButton: {
-    backgroundColor: '#f8f8f8'
-  }
-});
 
 export default DeleteButton;
