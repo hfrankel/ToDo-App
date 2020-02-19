@@ -1,14 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import DoneButton from './DoneButton';
+import DeleteButton from './DeleteButton';
 
 const ListItem = ({ item }) => {
   return (
     <TouchableOpacity style={styles.listItem}>
       <View style={styles.listItemView}>
         <Text style={styles.listItemText}>{item.title}</Text>
-        <FontAwesome name="check" size={20} color="green" />
-        <FontAwesome name="close" size={20} color="firebrick" />
+        <DoneButton />
+        <DeleteButton />
       </View>
     </TouchableOpacity>
   );
@@ -27,7 +29,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   listItemText: {
-    fontSize: 18
+    fontSize: 18,
+    flexGrow: 2
   }
 });
 
