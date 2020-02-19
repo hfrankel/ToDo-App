@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  TouchableOpacity
+} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { isConfigurationAvailable } from 'expo/build/AR';
 
 const TodoInput = () => {
   const [todoValue, onChangeText] = useState('');
@@ -14,12 +19,14 @@ const TodoInput = () => {
         value={todoValue}
         style={styles.input}
       ></TextInput>
-      <FontAwesome
-        onPress={() => alert('Added')}
-        style={styles.icon}
-        size={35}
-        name="plus-circle"
-      ></FontAwesome>
+      <TouchableOpacity>
+        <FontAwesome
+          onPress={() => alert('Added')}
+          style={styles.icon}
+          size={35}
+          name="plus-circle"
+        ></FontAwesome>
+      </TouchableOpacity>
     </View>
   );
 };
