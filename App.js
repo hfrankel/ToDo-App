@@ -1,59 +1,21 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import TodoInput from './components/TodoInput';
-import Header from './components/Header';
-import ListScreen from './components/ListScreen';
-import { uuid } from 'uuidv4';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
+import EditTaskScreen from './screens/EditTaskScreen';
 
-export default function App() {
-  const [items, setItems] = useState([
-    { id: uuid(), text: 'Add tasks', complete: false }
-  ]);
+const Stack = createStackNavigator();
 
-  const addItem = text => {
-    setItems(prevItems => {
-      return [{ id: uuid(), text, complete: false }, ...prevItems];
-    });
-  };
-
-  const deleteItem = id => {
-    setItems(prevItems => {
-      return prevItems.filter(item => item.id !== id);
-    });
-  };
-
-  const completeItem = id => {
-    setItems(prevItems => {
-      return prevItems.map(item =>
-        item.id === id ? { ...item, complete: true } : item
-      );
-    });
-  };
-
-  const untickItem = id => {
-    setItems(prevItems => {
-      return prevItems.map(item =>
-        item.id === id ? { ...item, complete: false } : item
-      );
-    });
-  };
-
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Header />
-      <TodoInput addItem={addItem} />
-      <ListScreen
-        items={items}
-        deleteItem={deleteItem}
-        completeItem={completeItem}
-        untickItem={untickItem}
-      />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Edit" component={EditTaskScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});
+export default App;

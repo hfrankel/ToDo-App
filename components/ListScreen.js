@@ -2,7 +2,13 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import ListItem from './ListItem';
 
-const ListScreen = ({ items, deleteItem, completeItem, untickItem }) => {
+const ListScreen = ({
+  items,
+  deleteItem,
+  completeItem,
+  untickItem,
+  navigation
+}) => {
   return (
     <FlatList
       keyExtractor={item => item.id}
@@ -14,6 +20,7 @@ const ListScreen = ({ items, deleteItem, completeItem, untickItem }) => {
             deleteItem={deleteItem}
             completeItem={completeItem}
             untickItem={untickItem}
+            navigation={navigation}
           />
         );
       }}

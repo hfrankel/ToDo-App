@@ -3,10 +3,20 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import DoneButton from './DoneButton';
 import DeleteButton from './DeleteButton';
 
-const ListItem = ({ item, deleteItem, completeItem, untickItem }) => {
+const ListItem = ({
+  item,
+  deleteItem,
+  completeItem,
+  untickItem,
+  navigation
+}) => {
+  const pressHandler = () => {
+    navigation.push('Edit', { item });
+  };
+
   if (item.complete === true) {
     return (
-      <TouchableOpacity style={styles.listItem}>
+      <TouchableOpacity style={styles.listItem} onPress={pressHandler}>
         <View style={styles.listItemView}>
           <Text style={styles.listItemComplete}>{item.text}</Text>
           <DoneButton
@@ -21,7 +31,7 @@ const ListItem = ({ item, deleteItem, completeItem, untickItem }) => {
   }
 
   return (
-    <TouchableOpacity style={styles.listItem}>
+    <TouchableOpacity style={styles.listItem} onPress={pressHandler}>
       <View style={styles.listItemView}>
         <Text style={styles.listItemText}>{item.text}</Text>
         <DoneButton item={item} completeItem={completeItem} />
