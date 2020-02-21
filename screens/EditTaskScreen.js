@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, StyleSheet, Button } from 'react-native';
+import { TextInput, StyleSheet, Button, View } from 'react-native';
 
 const EditTaskScreen = ({ route, navigation }) => {
   const { item } = route.params;
@@ -17,18 +17,21 @@ const EditTaskScreen = ({ route, navigation }) => {
 
   return (
     <TextInput
-      style={styles.listItemText}
+      style={styles.editItemText}
       onChangeText={text => setEditedText(text)}
       value={editedtext}
+      multiline
     ></TextInput>
   );
 };
 
 const styles = StyleSheet.create({
-  listItemText: {
+  editItemText: {
     fontSize: 18,
     marginTop: 10,
-    marginLeft: 10
+    marginLeft: 10,
+    flexGrow: 1,
+    alignItems: 'flex-start'
   }
 });
 
