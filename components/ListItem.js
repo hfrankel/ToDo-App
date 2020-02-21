@@ -18,12 +18,12 @@ const ListItem = ({
     return (
       <TouchableOpacity style={styles.listItem} onPress={pressHandler}>
         <View style={styles.listItemView}>
-          <Text style={styles.listItemComplete}>{item.text}</Text>
           <DoneButton
             item={item}
             completeItem={completeItem}
             untickItem={untickItem}
           />
+          <Text style={styles.listItemComplete}>{item.text}</Text>
           <DeleteButton item={item} deleteItem={deleteItem} />
         </View>
       </TouchableOpacity>
@@ -33,8 +33,8 @@ const ListItem = ({
   return (
     <TouchableOpacity style={styles.listItem} onPress={pressHandler}>
       <View style={styles.listItemView}>
-        <Text style={styles.listItemText}>{item.text}</Text>
         <DoneButton item={item} completeItem={completeItem} />
+        <Text style={styles.listItemText}>{item.text}</Text>
         <DeleteButton item={item} deleteItem={deleteItem} />
       </View>
     </TouchableOpacity>

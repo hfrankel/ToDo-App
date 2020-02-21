@@ -4,7 +4,7 @@ import { uuid } from 'uuidv4';
 import TodoInput from '../components/TodoInput';
 import ListScreen from '../components/ListScreen';
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen({ navigation, route }) {
   const [items, setItems] = useState([
     { id: uuid(), text: 'Add tasks', complete: false }
   ]);
@@ -45,6 +45,7 @@ export default function HomeScreen({ navigation }) {
     });
   };
 
+  console.log(route);
   return (
     <View style={styles.container}>
       <TodoInput addItem={addItem} />

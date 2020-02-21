@@ -8,7 +8,7 @@ const DoneButton = ({ item, completeItem, untickItem }) => {
       <TouchableOpacity style={{ marginRight: 15 }}>
         <FontAwesome
           onPress={() => untickItem(item.id)}
-          name="check"
+          name="check-circle-o"
           size={25}
           color="green"
         ></FontAwesome>
@@ -20,7 +20,7 @@ const DoneButton = ({ item, completeItem, untickItem }) => {
     <TouchableOpacity style={{ marginRight: 15 }}>
       <FontAwesome
         onPress={() => completeItem(item.id)}
-        name="check"
+        name="check-circle-o"
         size={25}
         color="green"
       ></FontAwesome>

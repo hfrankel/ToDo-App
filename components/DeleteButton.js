@@ -7,7 +7,7 @@ const DeleteButton = ({ item, deleteItem }) => {
     <TouchableOpacity>
       <FontAwesome
         onPress={() => deleteItem(item.id)}
-        name="close"
+        name="trash-o"
         size={25}
         color="firebrick"
       ></FontAwesome>

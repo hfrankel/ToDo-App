@@ -6,7 +6,7 @@ const EditTaskScreen = ({ route, navigation }) => {
   const [editedtext, setEditedText] = useState(`${item.text}`);
 
   const pressHandler = () => {
-    navigation.goBack(editedtext);
+    navigation.navigate('To Do List', { text: editedtext });
   };
 
   navigation.setOptions({
