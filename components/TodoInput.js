@@ -8,7 +8,7 @@ const TodoInput = ({ addItem }) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput
-        placeholder={'Add to do item'}
+        placeholder={'Add task'}
         onChangeText={textValue => setText(textValue)}
         value={text}
         style={styles.input}
@@ -34,14 +34,14 @@ const styles = StyleSheet.create({
   input: {
     margin: 15,
     height: 40,
-    borderColor: 'darkslateblue',
+    borderColor: '#483d8b',
     borderWidth: 1,
     flexGrow: 2,
     padding: 3
   },
   icon: {
     marginRight: 15,
-    color: 'darkslateblue'
+    color: '#483d8b'
   }
 });
 

@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import { TextInput, StyleSheet, View } from 'react-native';
+import { TextInput, StyleSheet, Button } from 'react-native';
 
 const EditTaskScreen = ({ route, navigation }) => {
   const { item } = route.params;
   const [editedtext, setEditedText] = useState(`${item.text}`);
 
-  // Find a way to pass params through header button then update state for item.text
-  // on homescreen
+  const pressHandler = () => {
+    navigation.goBack(editedtext);
+  };
+
+  navigation.setOptions({
+    headerRight: () => (
+      <Button onPress={() => pressHandler()} title="Done" color="#ffffff" />
+    )
+  });
 
   return (
     <TextInput
@@ -20,8 +27,8 @@ const EditTaskScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   listItemText: {
     fontSize: 18,
-    marginTop: 6,
-    marginLeft: 6
+    marginTop: 10,
+    marginLeft: 10
   }
 });
 

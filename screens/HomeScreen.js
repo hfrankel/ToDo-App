@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import TodoInput from '../components/TodoInput';
-import Header from '../components/Header';
-import ListScreen from '../components/ListScreen';
 import { uuid } from 'uuidv4';
+import TodoInput from '../components/TodoInput';
+import ListScreen from '../components/ListScreen';
 
 export default function HomeScreen({ navigation }) {
   const [items, setItems] = useState([
@@ -19,6 +18,14 @@ export default function HomeScreen({ navigation }) {
   const deleteItem = id => {
     setItems(prevItems => {
       return prevItems.filter(item => item.id !== id);
+    });
+  };
+
+  const updateItem = (id, editedtext) => {
+    setItems(prevItems => {
+      return prevItems.map(item =>
+        item.id === id ? { ...item, text: editedtext } : item
+      );
     });
   };
 
@@ -40,7 +47,6 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Header />
       <TodoInput addItem={addItem} />
       <ListScreen
         items={items}

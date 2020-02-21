@@ -10,8 +10,18 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#483d8b'
+          },
+          headerTintColor: '#ffffff',
+          headerTitleStyle: {
+            fontSize: 20
+          }
+        }}
+      >
+        <Stack.Screen name="To Do List" component={HomeScreen} />
         <Stack.Screen name="Edit" component={EditTaskScreen} />
       </Stack.Navigator>
     </NavigationContainer>
