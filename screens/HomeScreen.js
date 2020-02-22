@@ -1,64 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { uuid } from 'uuidv4';
 import TodoInput from '../components/TodoInput';
 import ListScreen from '../components/ListScreen';
+import ItemsContext from './../contexts/ItemsContext';
 
-export default function HomeScreen({ navigation, route }) {
-  const [items, setItems] = useState([
-    { id: uuid(), text: 'Add tasks', complete: false }
-  ]);
+const HomeScreen = ({ navigation }) => {
+  const values = useContext(ItemsContext);
 
-  const addItem = text => {
-    setItems(prevItems => {
-      return [{ id: uuid(), text, complete: false }, ...prevItems];
-    });
-  };
-
-  const deleteItem = id => {
-    setItems(prevItems => {
-      return prevItems.filter(item => item.id !== id);
-    });
-  };
-
-  const updateItem = (id, editedtext) => {
-    setItems(prevItems => {
-      return prevItems.map(item =>
-        item.id === id ? { ...item, text: editedtext } : item
-      );
-    });
-  };
-
-  const completeItem = id => {
-    setItems(prevItems => {
-      return prevItems.map(item =>
-        item.id === id ? { ...item, complete: true } : item
-      );
-    });
-  };
-
-  const untickItem = id => {
-    setItems(prevItems => {
-      return prevItems.map(item =>
-        item.id === id ? { ...item, complete: false } : item
-      );
-    });
-  };
-
-  console.log(route);
   return (
     <View style={styles.container}>
-      <TodoInput addItem={addItem} />
+      <TodoInput addItem={values.addItem} />
       <ListScreen
-        items={items}
-        deleteItem={deleteItem}
-        completeItem={completeItem}
-        untickItem={untickItem}
+        items={values.items}
+        deleteItem={values.deleteItem}
+        completeItem={values.completeItem}
+        untickItem={values.untickItem}
         navigation={navigation}
       />
     </View>
   );
-}
+};
+
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
