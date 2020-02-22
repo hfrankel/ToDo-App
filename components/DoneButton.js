@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 const DoneButton = ({ item, completeItem, untickItem }) => {
   if (item.complete === true) {
     return (
-      <TouchableOpacity style={{ marginRight: 15 }}>
+      <TouchableOpacity style={{ marginRight: 25 }}>
         <FontAwesome
           onPress={() => untickItem(item.id)}
           name="check-circle-o"
