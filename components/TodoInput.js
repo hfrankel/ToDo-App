@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import ItemsContext from './../contexts/ItemsContext';
 
 const TodoInput = ({ addItem }) => {
   const [text, setText] = useState('');
+  // const { addItem } = useContext(ItemsContext);
 
   return (
     <View style={styles.inputContainer}>
