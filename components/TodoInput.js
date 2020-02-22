@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     padding: 3
   },
   icon: {
-    marginRight: 15,
+    marginRight: 10,
     color: '#483d8b'
   }
 });
