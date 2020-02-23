@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import ItemsContext from './../contexts/ItemsContext';
 
-const DoneButton = ({ item, completeItem, untickItem }) => {
+const DoneButton = ({ item }) => {
+  const { completeItem, untickItem } = useContext(ItemsContext);
   if (item.complete === true) {
     return (
       <TouchableOpacity style={{ marginRight: 25 }}>

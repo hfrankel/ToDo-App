@@ -1,8 +1,10 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useContext } from 'react';
+import { TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import ItemsContext from './../contexts/ItemsContext';
 
-const DeleteButton = ({ item, deleteItem }) => {
+const DeleteButton = ({ item }) => {
+  const { deleteItem } = useContext(ItemsContext);
   return (
     <TouchableOpacity>
       <FontAwesome

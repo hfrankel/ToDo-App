@@ -1,28 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FlatList } from 'react-native';
 import ListItem from './ListItem';
+import ItemsContext from './../contexts/ItemsContext';
 
-const ListScreen = ({
-  items,
-  deleteItem,
-  completeItem,
-  untickItem,
-  navigation
-}) => {
+const ListScreen = ({ navigation }) => {
+  const { items } = useContext(ItemsContext);
   return (
     <FlatList
       keyExtractor={item => item.id}
       data={items}
       renderItem={({ item }) => {
-        return (
-          <ListItem
-            item={item}
-            deleteItem={deleteItem}
-            completeItem={completeItem}
-            untickItem={untickItem}
-            navigation={navigation}
-          />
-        );
+        return <ListItem item={item} navigation={navigation} />;
       }}
     />
   );
