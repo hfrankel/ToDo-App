@@ -5,7 +5,7 @@ import ItemsContext from './../contexts/ItemsContext';
 const EditTaskScreen = ({ route, navigation }) => {
   const { item } = route.params;
   const [editedtext, setEditedText] = useState(`${item.text}`);
-  values = useContext(ItemsContext);
+  const values = useContext(ItemsContext);
 
   const pressHandler = () => {
     navigation.navigate('To Do List', values.updateItem(item.id, editedtext));
