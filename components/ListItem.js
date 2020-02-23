@@ -3,13 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import DoneButton from './DoneButton';
 import DeleteButton from './DeleteButton';
 
-const ListItem = ({
-  item,
-  deleteItem,
-  completeItem,
-  untickItem,
-  navigation
-}) => {
+const ListItem = ({ item, navigation }) => {
   const pressHandler = () => {
     navigation.push('Edit', { item });
   };
@@ -18,13 +12,9 @@ const ListItem = ({
     return (
       <TouchableOpacity style={styles.listItem} onPress={pressHandler}>
         <View style={styles.listItemView}>
-          <DoneButton
-            item={item}
-            completeItem={completeItem}
-            untickItem={untickItem}
-          />
+          <DoneButton item={item} />
           <Text style={styles.listItemComplete}>{item.text}</Text>
-          <DeleteButton item={item} deleteItem={deleteItem} />
+          <DeleteButton item={item} />
         </View>
       </TouchableOpacity>
     );
@@ -33,9 +23,9 @@ const ListItem = ({
   return (
     <TouchableOpacity style={styles.listItem} onPress={pressHandler}>
       <View style={styles.listItemView}>
-        <DoneButton item={item} completeItem={completeItem} />
+        <DoneButton item={item} />
         <Text style={styles.listItemText}>{item.text}</Text>
-        <DeleteButton item={item} deleteItem={deleteItem} />
+        <DeleteButton item={item} />
       </View>
     </TouchableOpacity>
   );
