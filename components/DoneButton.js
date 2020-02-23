@@ -5,6 +5,8 @@ import ItemsContext from './../contexts/ItemsContext';
 
 const DoneButton = ({ item }) => {
   const { completeItem, untickItem } = useContext(ItemsContext);
+
+  // Task has been completed
   if (item.complete === true) {
     return (
       <TouchableOpacity style={{ marginRight: 25 }}>
@@ -18,6 +20,7 @@ const DoneButton = ({ item }) => {
     );
   }
 
+  // Uncompleted task
   return (
     <TouchableOpacity style={{ marginRight: 25 }}>
       <FontAwesome

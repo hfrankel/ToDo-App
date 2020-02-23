@@ -8,6 +8,7 @@ const ListItem = ({ item, navigation }) => {
     navigation.push('Edit', { item });
   };
 
+  // Task has been completed
   if (item.complete === true) {
     return (
       <TouchableOpacity style={styles.listItem} onPress={pressHandler}>
@@ -20,6 +21,7 @@ const ListItem = ({ item, navigation }) => {
     );
   }
 
+  // Uncompleted task
   return (
     <TouchableOpacity style={styles.listItem} onPress={pressHandler}>
       <View style={styles.listItemView}>
